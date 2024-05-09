@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Visual Typing Game</title>
+<link rel="stylesheet" href="styles.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+<div id="game">
+    <img id="personImage" src="" alt="MBTI Type Guess">
+    <div id="question">What type is this person?</div>
+    <div id="mbti-buttons">
+        <!-- Buttons for each MBTI type -->
+        <button onclick="guessType('INTJ')">INTJ</button>
+        <button onclick="guessType('ENTP')">ENTP</button>
+        <!-- Add other MBTI type buttons similarly -->
+    </div>
+    <button onclick="submitGuess()">Submit</button>
+    <div id="result"></div>
+</div>
+</body>
+</html>
