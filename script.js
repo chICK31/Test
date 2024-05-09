@@ -15,10 +15,10 @@ function selectType(type) {
 }
 
 function submitGuess() {
-        const guessedType = selectedType;
-        getRandomImage(); // Load a new image for the next round
-    const resultText = (guessedType === selectedType) ? "Good job!" : "Better luck next time!";
-        document.getElementById('result').textContent = resultText;
+            const guessedType = selectedType; // Store the type that the user is guessing
+            const resultText = (guessedType === selectedType) ? "Good job!" : "Better luck next time!";
+            getRandomImage(); // Load a new image for the next round after checking the guess
+            document.getElementById('result').textContent = resultText;
 }
 
 document.addEventListener('DOMContentLoaded', getRandomImage);
