@@ -1,12 +1,238 @@
-#game {
+
+html{
+    height: 100%; /* Ensure both html and body fill the entire viewport */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    box-sizing: border-box; /* Include padding and border in element's size */
+    overflow: hidden; /* Prevent scrollbars if unnecessary */
+}/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d8edff; /* Light blue background */
+    color: #000;
+    margin: 0;
+    padding: 0;
     text-align: center;
-    margin-top: 50px;
+    box-sizing: border-box; /* Include padding and border in element's size */
+    overflow: hidden; /* Prevent scrollbars if unnecessary */
+    height: 100%; /* Ensure both html and body fill the entire viewport */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Navbar Styling */
+  nav {
+    background-color: #000080; /* Blue background */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff; /* White text */
+  }
+  
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 24px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  h2 {
+    text-align: center;
+    margin: 0;
+    color: #000000; /* White text */
+    font-size: 25px;
+    padding-top: 10px;
+  }
+  /* Dropdown Menu */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropbtn {
+    background-color: #ff0000; /* Red background */
+    color: #ffffff; /* White text */
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff; /* White background */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: #000080; /* Blue text */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+    background-color: #000080; /* Blue background on hover */
+  }
+  
+/* Form Styling */
+form {
+  display: flex; /* Enables flexbox */
+  flex-direction: column; /* Aligns children in a column */
+  align-items: center; /* Centers items horizontally */
+  justify-content: center; /* Centers items vertically */
+  background-color: #ffffff; /* White background */
+  border: 5px solid #000080; /* Blue border */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  height: 100%; /* Adjust height dynamically based on content */
+  text-align: center; /* Ensures text inputs are centered */
 }
-#mbti-buttons button {
-    margin: 10px;
+
+/* Fix input and button width */
+form > * {
+  width: 80%; /* Ensures all direct children (inputs and buttons) take 80% width */
+  max-width: 100%; /* Prevents overflowing beyond the form */
+  box-sizing: border-box; /* Ensures padding does not affect width */
+}
+
+/* Style individual inputs */
+input[type="text"], 
+input[type="email"], 
+input[type="tel"] {
+  padding: 30px; /* Adjusted padding for better spacing */
+  margin-bottom: 5px; /* Adds spacing between elements */
+  border: 3px solid #000080; /* Blue border */
+  border-radius: 5px;
+  font-size: 2.5rem; /* Adjusted font size for better responsiveness */
+  margin-top: 20px; /* Reduce margin to keep things balanced */
+}
+
+/* Button Styling */
+button {
+  background-color: #000080; /* Blue background */
+  color: #ffffff; /* White text */
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 1.5rem; /* Reduced font size to prevent zoom distortion */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 60%; /* Adjusted button width */
+  max-width: 80%; /* Prevents it from exceeding the form */
+}
+
+button:hover {
+  background-color: #ff0000; /* Red background on hover */
+}
+
+
+  
+
+@media (max-width: 600px) {
+  body {
     padding: 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+    padding: 15px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+
+  input[type="text"], input[type="email"], input[type="tel"] {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  button {
+    padding: 10px;
+    font-size: 14px;
+  }
+  form {
+    width: 90%; /* Make form take more space on small screens */
+  }
+  input[type="text"], input[type="email"], input[type="tel"], button {
+    font-size: 1.2rem; /* Reduce text size on smaller screens */
+  }
+
+  .dropdown {
+    width: 100%;
+    text-align: left;
+  }
+
+  .dropbtn {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .dropdown-content {
+    min-width: 100%;
+    box-shadow: none;
+  }
+
+  .dropdown-content a {
+    font-size: 14px;
+    padding: 10px;
+  }
 }
-#personImage {
-    width: 200px;
-    height: 200px;
+
+.container {
+  display: flex;
+  align-items: flex-start; /* Align items to the top */
+  gap: 10px; /* Space between form and iframe */
+  height: 80%; /* Adjust as needed */
+
+}
+
+#queueForm {
+  flex: 1; /* Allow form to take available space */
+}
+iframe {
+  flex: 1; /* Allow iframe to take available space */
+  min-width: 150px; /* Set a minimum width */
+  height: 100%; /* Adjust as needed */
+  border: 5px solid blue; /* Adds a blue border */
+  border-radius: 15px; /* Rounded corners */
+
+}
+
+#queueForm div {
+  display: flex;
+  flex-direction: column;
+  
 }
