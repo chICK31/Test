@@ -1,37 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Visual Typing Game</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>HairMasters Queue</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database-compat.js"></script>
+</head>
 <body>
-    <div id="game">
-    <img id="personImage" src="" alt="Type Guess" style="width: 200px; height: 200px;">
-            <div id="question">What type is this person?</div>
-            <div id="mbti-buttons">
-                        <button onclick="selectType('INTJ')">INTJ</button>
-                        <button onclick="selectType('ENTJ')">ENTJ</button>
-                        <button onclick="selectType('INTP')">INTP</button>
-                        <button onclick="selectType('ENTP')">ENTP</button>
-                        <button onclick="selectType('INFJ')">INFJ</button>
-                        <button onclick="selectType('ENFJ')">ENFJ</button>
-                        <button onclick="selectType('INFP')">INFP</button>
-                        <button onclick="selectType('ENFP')">ENFP</button>
-                        <button onclick="selectType('ISTJ')">ISTJ</button>
-                        <button onclick="selectType('ESTJ')">ESTJ</button>
-                        <button onclick="selectType('ISFJ')">ISFJ</button>
-                        <button onclick="selectType('ESFJ')">ESFJ</button>
-                        <button onclick="selectType('ISTP')">ISTP</button>
-                        <button onclick="selectType('ESTP')">ESTP</button>
-                        <button onclick="selectType('ISFP')">ISFP</button>
-                        <button onclick="selectType('ESFP')">ESFP</button>
-            </div>
-            <button onclick="submitGuess()">Submit</button>
-            <div id="result">
+  <nav>
+    <div class="nav-container">
+      <h1 id="page-title">Welcome to HairMasters</h1>
+      
+      <div class="dropdown">
+        <button class="dropbtn">Select Language</button>
+        <div class="dropdown-content">
+          <a href="#" onclick="switchLanguage('en')">English</a>
+          <a href="#" onclick="switchLanguage('es')">Español</a>
+        </div>
+      </div>
     </div>
+  </nav> 
+  <h2>Sign-In and Add to Queue</h2>
+
+  <div class="container">
+    <form id="queueForm">
+      <input type="hidden" id="websiteSource" value="Hairmasters1"> 
+      <div>
+        <input type="text" id="firstName" placeholder="First name" required>
+        <input type="text" id="lastName" placeholder="Last name" required>
+        <input type="tel" id="phoneNumber" placeholder="Enter your phone number">
+        <input type="email" id="email" placeholder="Enter your email (optional)">
+      </div>
+      <button type="submit">Add to Queue</button>
+    </form>
+  
+    <iframe src="display1.html" allowfullscreen></iframe>
+  </div>
+  <script src="add.js"></script>
+
+  <!-- Language Switcher -->
+  <script>
+    const translations = {
+      en: {
+        title: "Welcome to HairMasters",
+        subtitle: "Sign-In and Add to Queue",
+        firstNamePlaceholder: "Enter your first name",
+        lastNamePlaceholder: "Enter your last name",
+        emailPlaceholder: "Enter your email (optional)",
+        phonePlaceholder: "Enter your phone number",
+        addToQueue: "Add to Queue",
+      },
+      es: {
+        title: "Bienvenido a HairMasters",
+        subtitle: "Inicia sesión y únete a la fila",
+        firstNamePlaceholder: "Ingresa tu nombre",
+        lastNamePlaceholder: "Ingresa tu apellido",
+        emailPlaceholder: "Ingresa tu correo electrónico (opcional)",
+        phonePlaceholder: "Ingresa tu número de teléfono",
+        addToQueue: "Añadir a la fila",
+      },
+    };
+
+    function switchLanguage(lang) {
+      document.documentElement.lang = lang;
+
+      const elements = {
+        pageTitle: document.getElementById("page-title"),
+        subtitle: document.querySelector("h2"),
+        firstName: document.getElementById("firstName"),
+        lastName: document.getElementById("lastName"),
+        email: document.getElementById("email"),
+        phoneNumber: document.getElementById("phoneNumber"),
+        submitButton: document.querySelector("button[type='submit']"),
+      };
+
+      elements.pageTitle.textContent = translations[lang].title;
+      elements.subtitle.textContent = translations[lang].subtitle;
+      elements.firstName.placeholder = translations[lang].firstNamePlaceholder;
+      elements.lastName.placeholder = translations[lang].lastNamePlaceholder;
+      elements.email.placeholder = translations[lang].emailPlaceholder;
+      elements.phoneNumber.placeholder = translations[lang].phonePlaceholder;
+      elements.submitButton.textContent = translations[lang].addToQueue;
+    }
+  </script>
 </body>
-</html>html>
-</body></title>
-    </head>
+</html>
